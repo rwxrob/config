@@ -1,23 +1,25 @@
-# Bonzai™ Sample `foo` Command (Template)
-
-*Create a new GitHub project using this template and change this
-README.md to match your project. Make all your template changes before
-making your first commit.*
+# YAML/JSON Configuration, a Bonzai Branch
 
 ![WIP](https://img.shields.io/badge/status-wip-red)
-![Go Version](https://img.shields.io/github/go-mod/go-version/rwxrob/foo)
-[![GoDoc](https://godoc.org/github.com/rwxrob/foo?status.svg)](https://godoc.org/github.com/rwxrob/foo)
+![Go
+Version](https://img.shields.io/github/go-mod/go-version/rwxrob/config)
+[![GoDoc](https://godoc.org/github.com/rwxrob/config?status.svg)](https://godoc.org/github.com/rwxrob/config)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
+
+This `config` module/command is for managing any configuration as
+YAML/JSON using industry standards for local configuration and caching.
+As a Bonzai branch, this module can be used to add a `config` subcommand
+to any other Bonzai command.
 
 ## Install
 
-This command can be installed as a standalone program or composed into 
-a Bonzai command tree.
+This command can be installed as a standalone program (for combined use
+with shell scripts perhaps) or composed into a Bonzai command tree.
 
 Standalone
 
 ```
-go install github.com/rwxrob/foo/foo@latest
+go install github.com/rwxrob/config/config@latest
 ```
 
 Composed
@@ -27,12 +29,12 @@ package cmds
 
 import (
 	"github.com/rwxrob/bonzai"
-	"github.com/rwxrob/foo"
+	"github.com/rwxrob/config"
 )
 
 var Cmd = &bonzai.Cmd{
 	Name:     `cmds`,
-	Commands: []*bonzai.Cmd{help.Cmd, foo.Cmd},
+	Commands: []*bonzai.Cmd{help.Cmd, config.Cmd},
 }
 ```
 
@@ -43,7 +45,7 @@ To activate bash completion just use the `complete -C` option from your
 completion is done by the program itself.
 
 ```
-complete -C foo foo
+complete -C config config
 ```
 
 If you don't have bash or tab completion check use the shortcut
