@@ -56,3 +56,10 @@ commands instead.
 All documentation (like manual pages) has been embedded into the source
 code of the application. See the source or run the program with help to
 access it.
+
+## Design Considerations
+
+* **JSON Output.** JSON is YAML. But JSON is also much safer to deal
+  with when parsing and piping into other things. The `Query` form has
+  been modeled after `jq` (which has become something of a standard tool
+  for mining information from configuration and other files.
