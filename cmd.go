@@ -5,6 +5,7 @@ import (
 
 	"github.com/rwxrob/bonzai"
 	"github.com/rwxrob/bonzai/inc/help"
+	config "github.com/rwxrob/config/pkg"
 	"github.com/rwxrob/term"
 )
 
@@ -32,17 +33,16 @@ var _init = &bonzai.Cmd{
 	Commands: []*bonzai.Cmd{help.Cmd},
 	Call: func(x *bonzai.Cmd, _ ...string) error {
 		if term.IsInteractive() {
-			dir := Dir(x.Caller.Caller.Name)
+			dir := config.Dir(x.Root.Name)
 			if dir == "" {
-				return fmt.Errorf("unable to resolve config for %q",
-					x.Caller.Caller.Name)
+				return fmt.Errorf("unable to resolve config for %q", x.Root.Name)
 			}
 			r := term.Prompt(`Really initialize %v? (y/N) `, dir)
 			if r != "y" {
 				return nil
 			}
 		}
-		return Init(x.Caller.Caller.Name)
+		return config.Init(x.Root.Name)
 	},
 }
 
@@ -52,10 +52,10 @@ var _file = &bonzai.Cmd{
 	Summary:  `outputs the full path to the configuration file`,
 	Commands: []*bonzai.Cmd{help.Cmd},
 	Call: func(x *bonzai.Cmd, _ ...string) error {
-		path := File(x.Caller.Caller.Name)
+		path := config.File(x.Root.Name)
 		if path == "" {
 			return fmt.Errorf("unable to file config for %q",
-				x.Caller.Caller.Name)
+				x.Root.Name)
 		}
 		fmt.Println(path)
 		return nil
@@ -68,10 +68,10 @@ var data = &bonzai.Cmd{
 	Summary:  `outputs the contents of the configuration file`,
 	Commands: []*bonzai.Cmd{help.Cmd},
 	Call: func(x *bonzai.Cmd, _ ...string) error {
-		data := Data(x.Caller.Caller.Name)
+		data := config.Data(x.Root.Name)
 		if data == "" {
 			return fmt.Errorf("config empty or missing for %q",
-				x.Caller.Caller.Name)
+				x.Root.Name)
 		}
 		fmt.Print(data)
 		return nil
@@ -98,7 +98,7 @@ var edit = &bonzai.Cmd{
 		to the editor. `,
 
 	Call: func(x *bonzai.Cmd, _ ...string) error {
-		return Edit(x.Caller.Caller.Name)
+		return config.Edit(x.Root.Name)
 	},
 }
 
@@ -111,7 +111,7 @@ var query = &bonzai.Cmd{
 		if len(args) == 0 {
 			return x.UsageError()
 		}
-		QueryPrint(x.Caller.Caller.Name, args[0])
+		config.QueryPrint(x.Root.Name, args[0])
 		return nil
 	},
 }

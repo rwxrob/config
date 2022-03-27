@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/rwxrob/config"
+	config "github.com/rwxrob/config/pkg"
 	"github.com/rwxrob/fs/dir"
 )
 
