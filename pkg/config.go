@@ -19,7 +19,6 @@ import (
 	"bytes"
 	"fmt"
 	_fs "io/fs"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -42,11 +41,7 @@ var DefaultFile = "config.yaml"
 var DefaultDir string
 
 func init() {
-	var err error
-	DefaultDir, err = os.UserConfigDir()
-	if err != nil {
-		log.Print(err)
-	}
+	DefaultDir, _ = os.UserConfigDir()
 }
 
 // fulfills bonzai/conf.Configurer
@@ -188,8 +183,8 @@ func Query(id, q string) string {
 	cmd.Stderr = stderr
 
 	if err := cmd.Run(); err != nil {
-		log.Print(stderr)
-		log.Print(err)
+		//log.Print(stderr)
+		//log.Print(err)
 		return ""
 	}
 
