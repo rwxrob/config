@@ -104,7 +104,8 @@ var edit = &bonzai.Cmd{
 
 var query = &bonzai.Cmd{
 	Name:     `query`,
-	Summary:  `query configuration data using jq style`,
+	Summary:  `query configuration data using jq/yq style`,
+	Usage:    `<dotted>`,
 	Aliases:  []string{"q"},
 	Commands: []*bonzai.Cmd{help.Cmd},
 	Call: func(x *bonzai.Cmd, args ...string) error {
