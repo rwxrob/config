@@ -1,6 +1,5 @@
 # YAML/JSON Configuration, a Bonzai Branch
 
-![WIP](https://img.shields.io/badge/status-wip-red)
 ![Go
 Version](https://img.shields.io/github/go-mod/go-version/rwxrob/config)
 [![GoDoc](https://godoc.org/github.com/rwxrob/config?status.svg)](https://godoc.org/github.com/rwxrob/config)

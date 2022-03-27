@@ -1,3 +1,18 @@
+/*
+Package config helps generically manage configuration data in YAML files
+(and, by extension JSON, which is a YAML subset) using the
+gopkg.in/yaml.v3 package (v2 is not compatible with encoding/json
+creating unexpected marshaling errors).
+
+The package provides the high-level functions called by the Bonzai™
+branch command of the same name allowing it to be consistently composed into any to any other Bonzai branch.
+
+Rather than provide functions for changing individual values, this
+package assumes editing of the YAML files directly and provider helpers
+for system-wide safe concurrent writes and queries using the convention
+yq/jq syntax. Default directory and file permissions are purposefully
+more restrictive than the Go default (0700/0600).
+*/
 package config
 
 import (
@@ -147,6 +162,7 @@ func Query(name, q string) string {
 		return ""
 	}
 
+	// TODO: replace this with yq
 	datab, err := yaml2json.Convert([]byte(data))
 	if err != nil {
 		log.Print(err)
