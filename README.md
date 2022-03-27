@@ -6,13 +6,12 @@ Version](https://img.shields.io/github/go-mod/go-version/rwxrob/config)
 [![GoDoc](https://godoc.org/github.com/rwxrob/config?status.svg)](https://godoc.org/github.com/rwxrob/config)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
-This `config` module/command is for managing any configuration as
+This `config` Bonzai branch is for managing any configuration as
 YAML/JSON using industry standards for local configuration and caching.
-As a Bonzai branch, this module can be used to add a `config` subcommand
-to any other Bonzai command.
+Use it to add a `config` subcommand to any other Bonzai command, or to
+your root Bonzai tree (`z`).
 
 ## Install
-
 This command can be installed as a standalone program (for combined use
 with shell scripts perhaps) or composed into a Bonzai command tree.
 
@@ -25,7 +24,7 @@ go install github.com/rwxrob/config/config@latest
 Composed
 
 ```go
-package cmds
+package z
 
 import (
 	"github.com/rwxrob/bonzai"
@@ -33,7 +32,7 @@ import (
 )
 
 var Cmd = &bonzai.Cmd{
-	Name:     `cmds`,
+	Name:     `z`,
 	Commands: []*bonzai.Cmd{help.Cmd, config.Cmd},
 }
 ```
