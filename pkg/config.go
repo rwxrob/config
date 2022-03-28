@@ -24,10 +24,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/rogpeppe/go-internal/lockedfile"
 	"github.com/rwxrob/fs"
 	"github.com/rwxrob/fs/dir"
 	"github.com/rwxrob/fs/file"
-	"github.com/rwxrob/fs/lockedfile"
 	y2j "github.com/rwxrob/y2j/pkg"
 	"gopkg.in/yaml.v3"
 )
@@ -140,10 +140,11 @@ func mkdir(id string) error {
 }
 
 // Write marshals any Go type and overwrites the configuration File in
-// a way that is safe for all callers of Write in this current system for
-// any operating system using fs/lockedfile (taken from the to internal
-// project itself, https://github.com/golang/go/issues/33974) but
-// applying the file.DefaultPerms instead of the 0666 Go default.
+// a way that is safe for all callers of Write in this current system
+// for any operating system using go-internal/lockedfile (taken from the
+// to internal project itself,
+// https://github.com/golang/go/issues/33974) but applying the
+// file.DefaultPerms instead of the 0666 Go default.
 func Write(id string, conf any) error {
 	buf, err := yaml.Marshal(conf)
 	if err != nil {
