@@ -28,7 +28,7 @@ import (
 	"github.com/rwxrob/fs/dir"
 	"github.com/rwxrob/fs/file"
 	"github.com/rwxrob/fs/lockedfile"
-	yaml2json "github.com/rwxrob/yaml2json/pkg"
+	y2j "github.com/rwxrob/y2j/pkg"
 	"gopkg.in/yaml.v3"
 )
 
@@ -169,7 +169,7 @@ func Query(id, q string) string {
 	}
 
 	// TODO: replace this with yq
-	datab, err := yaml2json.Convert([]byte(data))
+	datab, err := y2j.Convert([]byte(data))
 	if err != nil {
 		//log.Print(err)
 		return ""
