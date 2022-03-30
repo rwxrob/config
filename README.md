@@ -36,6 +36,9 @@ var Cmd = &bonzai.Cmd{
 }
 ```
 
+Note config is designed to be composed only in monolith mode (not
+multicall binary).
+
 ## Tab Completion
 
 To activate bash completion just use the `complete -C` option from your
