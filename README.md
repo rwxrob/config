@@ -1,4 +1,4 @@
-# YAML/JSON Configuration, a Bonzai Branch
+# 🌳 Go YAML/JSON Configuration
 
 ![Go
 Version](https://img.shields.io/github/go-mod/go-version/rwxrob/config)
