@@ -11,6 +11,7 @@ Use it to add a `config` subcommand to any other Bonzai command, or to
 your root Bonzai tree (`z`).
 
 ## Install
+
 This command can be installed as a standalone program (for combined use
 with shell scripts perhaps) or composed into a Bonzai command tree.
 
@@ -26,13 +27,13 @@ Composed
 package z
 
 import (
-	"github.com/rwxrob/bonzai"
+	Z "github.com/rwxrob/bonzai"
 	"github.com/rwxrob/config"
 )
 
 var Cmd = &bonzai.Cmd{
 	Name:     `z`,
-	Commands: []*bonzai.Cmd{help.Cmd, config.Cmd},
+	Commands: []*Z.Cmd{help.Cmd, config.Cmd},
 }
 ```
 
