@@ -3,8 +3,8 @@ package config
 import (
 	"fmt"
 
-	Z "github.com/rwxrob/bonzai"
-	"github.com/rwxrob/bonzai/inc/help"
+	"github.com/rwxrob/bonzai/help"
+	Z "github.com/rwxrob/bonzai/z"
 	config "github.com/rwxrob/config/pkg"
 	"github.com/rwxrob/term"
 )
