@@ -4,10 +4,10 @@ go 1.18
 
 require (
 	github.com/rogpeppe/go-internal v1.8.1
-	github.com/rwxrob/bonzai v0.1.0
+	github.com/rwxrob/bonzai v0.1.2
 	github.com/rwxrob/fs v0.4.4
 	github.com/rwxrob/term v0.2.3
-	github.com/rwxrob/y2j v0.3.2
+	github.com/rwxrob/y2j v0.3.3
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )
 
