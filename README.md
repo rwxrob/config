@@ -6,12 +6,19 @@ Version](https://img.shields.io/github/go-mod/go-version/rwxrob/config)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
 This `config` Bonzai branch is for safely managing any configuration as
-single, local YAML/JSON using industry standards for local
-configuration. Use it to add a `config` subcommand to any other Bonzai
-command, or to your root Bonzai tree (`z`). All commands that use
+single, local YAML/JSON using industry standards for local configuration
+and system-safe writes. Use it to add a `config` subcommand to any other
+Bonzai command, or to your root Bonzai tree (`z`). All commands that use
 `config` that are composed into a single binary, no matter where in the
 tree, will use the same local config file even though the position
 within the file will be qualified by the tree location.
+
+By default, importing `config` will assigned a new implementation of
+`bonzai.Configurer` to `Z.Conf` (satisfying any `Z.Cmd` requirement for
+configuration) and will use the name of the binary (`Z.ExeName`) as the
+directory name within `os.UserConfDir` with a `config.yaml` file name.
+To override this behavior, create a new `pkd/config.Conf` struct assign
+`Id`, `Dir` and `File`, and then assign that to `Z.Conf`.
 
 ## Install
 
