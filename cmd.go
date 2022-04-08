@@ -18,12 +18,30 @@ var Cmd = &Z.Cmd{
 	License:   `Apache-2.0`,
 	Commands:  []*Z.Cmd{data, _init, edit, _file, query, help.Cmd},
 	Description: `
-		The config command allows configuration of the current command in
-		YAML and JSON (since all JSON is valid YAML). All changes to
-		configuration values are done via the <edit> command since
-		configurations may be complex and deeply nested in some cases.
-		Querying configuration data, however, can be easily accomplished
-		with the <query> command that uses jq-like selection syntax.`,
+		The *config* Bonzai branch is for safely managing any configuration
+		as single, local YAML/JSON using industry standards for local
+		configuration. Use it to add a *config* subcommand to any other
+		Bonzai command, or to your root Bonzai tree (*z*).
+
+		Take particular note that all commands composed into a single
+		binary, no matter where in the tree, will use the same local config
+		file even though the position within the file will be qualified by
+		the tree location. Therefore, any composite command can read the
+		configurations of any other composite command within the same
+		binary. This is by design, but all commands composed together should
+		always be vetted for safe practices. This is also the reason there
+		is no "write" or "set" command.
+
+		All changes to configuration values are done via the *edit* command
+		since configurations may be complex and deeply nested in some cases
+		and promoting the automatic changing of configuration values opens
+		the possibility of one buggy composed command to blow away one or
+		all the configurations for everything composed into the binary. [The
+		*cache* command is recommended when wanting to persist local data
+		between command executions.]
+
+		Querying configuration data can be easily accomplished with the
+		<query> command that uses jq-like selection syntax.`,
 }
 
 var _init = &Z.Cmd{

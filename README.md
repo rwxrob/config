@@ -5,10 +5,13 @@ Version](https://img.shields.io/github/go-mod/go-version/rwxrob/config)
 [![GoDoc](https://godoc.org/github.com/rwxrob/config?status.svg)](https://godoc.org/github.com/rwxrob/config)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
-This `config` Bonzai branch is for managing any configuration as
-YAML/JSON using industry standards for local configuration and caching.
-Use it to add a `config` subcommand to any other Bonzai command, or to
-your root Bonzai tree (`z`).
+This `config` Bonzai branch is for safely managing any configuration as
+single, local YAML/JSON using industry standards for local
+configuration. Use it to add a `config` subcommand to any other Bonzai
+command, or to your root Bonzai tree (`z`). All commands that use
+`config` that are composed into a single binary, no matter where in the
+tree, will use the same local config file even though the position
+within the file will be qualified by the tree location.
 
 ## Install
 
