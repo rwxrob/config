@@ -22,6 +22,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/rogpeppe/go-internal/lockedfile"
 	"github.com/rwxrob/fs"
@@ -145,16 +146,19 @@ func (c Conf) OverWrite(newconf any) error {
 }
 
 // Query returns a YAML string matching the given yq query for the given
-// configuration. Currently, this function is implemented by calling
-// rwxrob/yq. Will log and return empty string if error.
+// configuration and strips any initial or trailing white space (usually
+// just the single new line at then added by yq). Currently, this
+// function is implemented by calling rwxrob/yq. Will log and return
+// empty string if error. Note that the yqlib usually adds a line to the
+// end.
 func (c Conf) Query(q string) string {
 	results, err := yq.EvaluateToString(q, c.Path())
 	if err != nil {
 		log.Print(err)
 		return ""
 	}
-	return results
+	return strings.TrimSpace(results)
 }
 
-// QueryPrint prints the output of Query with a new line.
+// QueryPrint prints the output of Query.
 func (c Conf) QueryPrint(q string) { fmt.Print(c.Query(q)) }
