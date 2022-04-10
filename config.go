@@ -26,7 +26,7 @@ var Cmd = &Z.Cmd{
 
 	Name:      `config`,
 	Summary:   `manage local YAML/JSON configuration`,
-	Version:   `v0.4.0`,
+	Version:   `v0.4.3`,
 	Copyright: `Copyright 2021 Robert S Muhlestein`,
 	License:   `Apache-2.0`,
 	Commands:  []*Z.Cmd{help.Cmd, data, _init, edit, _file, query},
