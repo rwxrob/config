@@ -39,7 +39,9 @@ func ExampleQuery() {
 	c := config.Conf{Id: `bar`, Dir: `testdata`, File: `config.yaml`}
 
 	c.QueryPrint(".")
+	fmt.Println()
 	c.QueryPrint(".some")
+	fmt.Println()
 	c.QueryPrint(".here")
 
 	// Output:
