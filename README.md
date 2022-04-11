@@ -1,5 +1,7 @@
 # 🌳 Go YAML/JSON Configuration
 
+⛔ **DEPRECATION WARNING:** Use [conf](https://github.com/rwxrob/conf) instead.
+
 ![Go
 Version](https://img.shields.io/github/go-mod/go-version/rwxrob/config)
 [![GoDoc](https://godoc.org/github.com/rwxrob/config?status.svg)](https://godoc.org/github.com/rwxrob/config)
